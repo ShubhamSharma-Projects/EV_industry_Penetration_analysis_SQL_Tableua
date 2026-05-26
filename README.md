@@ -11,7 +11,7 @@ To identify growth oppurtunity and develop data-driven market expansion strategy
 1. Analyzing  the Indian Electric Vehicle(EV) and hybrid vehicle market to understand current industry trend and growth patterns.
 2. Identifying the top-performing states and regions based on EV sales and penetration rates.
 3. Evaluating the performance of diffrent vehicle categories,including 2-Wheelers and 4-Wheelers, within the EV market
-4. Studying the EV adoption pattern on a yeaerly basis and market expansion oppurtunities 
+4. Studying the EV adoption pattern on a yearly basis and market expansion oppurtunities 
 5. Performing Sql Based analysis to answer key business question and extract actional insight.
 
 ## 🧹Data Cleaning and Preparation
@@ -21,4 +21,4 @@ Data Cleaning steps
 - Correct Date Format
 - Removal of the duplicates records
 - converting the mismatched data type
-
+- 

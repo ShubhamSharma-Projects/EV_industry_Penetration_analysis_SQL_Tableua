@@ -21,4 +21,40 @@ Data Cleaning steps
 - Correct Date Format
 - Removal of the duplicates records
 - converting the mismatched data type
-- 
+
+## SQL Analysis
+### 1) Identify the top 5 states with the highest penetration rate in 2-wheeler and 4-wheeler EV sales in FY 2022,2024.
+``` sql
+
+select * from
+	(
+		select state,
+		vehicle_category
+		penetration_rate_2022,
+		penetration_rate_2024,
+		rank()over(partition by vehicle_category order by trend desc) as rnk
+
+		from(
+		select 
+		state,vehicle_category,
+
+		 max(case when d.fiscal_year='2022' then 
+		 (s.electric_vehicles_sold) / (s.total_vehicles_sold) * 100  end)AS penetration_rate_2022,
+		 max(case when d.fiscal_year='2024' then 
+		 (s.electric_vehicles_sold) / (s.total_vehicles_sold) * 100  end)AS penetration_rate_2024,
+		 
+		max(case when d.fiscal_year='2024' then 
+		 (s.electric_vehicles_sold) / (s.total_vehicles_sold) * 100  end)-max(case when d.fiscal_year='2022' then 
+		 (s.electric_vehicles_sold) / (s.total_vehicles_sold) * 100  end)  as trend
+		 
+		 from  sales_state s
+		 join dim_date d on s.datee=d.datee
+		where fiscal_year in ('2022','2024') 
+		 group by state,vehicle_category 
+		 order by state ,trend desc
+		 )t
+		 order by vehicle_category
+)t2
+where rnk<=5
+;
+```

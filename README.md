@@ -58,3 +58,95 @@ select * from
 where rnk<=5
 ;
 ```
+### 2) IDENTIFY THE TOP AND BOTTOM 3 MAKERS FOR THE FISCAL YEAR 2023,2024.
+``` sql
+select rnk,
+max(case when fiscal_year='2023'then maker end) as top_3_2023,
+max(case when fiscal_year='2024' then maker end) as top_3_2024
+from(
+select s.maker,d.fiscal_year,
+rank() over(partition by d.fiscal_year order by s.electric_vehicles_sold desc) as rnk
+ from sales_maker s
+join dim_date d on s.datee=d.datee
+where fiscal_year in (2023,2024)
+)t
+where rnk<=3
+group by rnk
+order by rnk
+;
+
+select
+rnk,
+min(case when fiscal_year-'2023' then maker end) as bottom_3_2023,
+min(case when fiscal_year-'2024' then maker end) as bottom_4_2024
+from(
+select s.maker,d.fiscal_year,
+dense_rank() over(partition by d.fiscal_year order by s.electric_vehicles_sold asc) as rnk
+ from sales_maker s
+join dim_date d on s.datee=d.datee
+where fiscal_year in (2023,2024)
+)k
+where rnk<=3
+group by rnk
+order by rnk
+;
+```
+### 3) How do the EV sales and penetration rates in Delhi compare to Karnataka for 2024?
+``` sql
+select 
+state,
+sum(electric_vehicles_sold) as EV_sold, 
+sum(total_vehicles_sold),
+ sum(electric_vehicles_sold) / sum(total_vehicles_sold) * 100 AS penetration_rate
+ from sales_state
+ where state in ('Delhi','Karnataka') and vehicle_category='4-Wheelers'
+ and year(datee)='2024'
+ group by state
+ ;
+```
+### 4) List down the compounded annual growth rate (CAGR) in 4-wheeler  units for the top 5 makers from 2022 to 2024. 
+``` sql
+select 
+maker,
+total_sale_2022,
+total_sale_2023,
+total_sale_2024,
+power(total_sale_2024 * 1.0 / total_sale_2022, 1.0/2) - 1 AS CAGR
+from(
+
+select 
+maker,
+coalesce(sum(case when year(datee)=2022 then 
+	electric_vehicles_sold end),0) as total_sale_2022,
+ sum(case when year(datee)=2023 then 
+	electric_vehicles_sold end) as total_sale_2023,
+coalesce(sum(case when year(datee)=2024 then 
+	electric_vehicles_sold end),0) as total_sale_2024
+    
+
+from sales_maker
+where year(datee) in (2022,2023,2024) and vehicle_category='4-Wheelers'
+group by maker
+)t
+order  by CAGR desc
+limit 5
+;
+```
+### 5) Determine the penetration rate of the Vehicles for the Fiscal year 2024
+``` sql
+SELECT *
+FROM
+(
+    SELECT 
+        s.state,
+        SUM(s.electric_vehicles_sold) / 
+        SUM(s.total_vehicles_sold) * 100 AS penetration_rate
+    FROM sales_state s
+    JOIN dim_date d 
+        ON s.datee = d.datee
+    WHERE d.fiscal_year = 2024
+    GROUP BY s.state
+    ORDER BY penetration_rate DESC
+) t;
+```
+

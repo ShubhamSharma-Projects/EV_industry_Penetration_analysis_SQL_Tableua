@@ -103,10 +103,12 @@ the recommendation to AtliQ Motors India is:
 **04 — Use Goa as a Premium Niche Test**
 > Goa's 9.84% penetration — highest in India — signals a market willing to adopt EVs early. Pilot a premium model here to validate pricing power before a broader rollout.
 
-**🚀 View the Live Dashboard**
-👉 Open Interactive Tableau Dashboard
+## **🚀 View the Live Dashboard**
 
-**📚 Skills Demonstrated**
+
+👉 [Open Interactive Tableau Dashboard](https://public.tableau.com/app/profile/shubham.sharma8380/viz/EVIndustryproject/StrategicMarketentry?publish=yes)
+
+## **📚 Skills Demonstrated**
 - **Structured Problem Decomposition** — translated a business brief into 4 focused analytical questions
 - **Excel-Based Data Preparation** — cleaned and transformed raw EV sales data, built calculated fields for penetration rate, CAGR, and YoY growth
 - **Data Visualisation** — 3-dashboard executive brief with KPIs, quadrant analysis, trend charts, and geographic mapping

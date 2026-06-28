@@ -11,7 +11,7 @@ A Leading EV manufacturer in North America, Plans to expand its presence in the 
 This project focuses on analyzing India's EV market using data analytics and business intelligence to uncover key trend,market oppurtunity, consumer adoption pattern,competitive insight.Acting as an data analyst for AtilQ Motors,the analysis was performed using SQL,Tableau,Excel to evaluate sales performance,penetration rate,top-performing states,vehicle category,manufacturer-wise growth.
 
 ## 📋 Problem Statement
-AtliQ Motors is an automotive giant from the USA specialising in electric vehicles, with a 25% market share in North America's electric and hybrid vehicle segment. As part of their expansion plans, they identified India as a key growth market — where their current share is less than 2%.
+AtliQ Motors is an automotive giant from the USA specialising in electric vehicles, with a **25% market share in North America's electric and hybrid vehicle segment.** As part of their expansion plans, they identified India as a key growth market — where their current share is **less than 2%.**
 
 Bruce Haryali, Chief of AtliQ Motors India, commissioned a detailed market study of the existing Indian EV landscape before proceeding with any launch decisions. This project is the analytical response to that brief.
 

@@ -118,3 +118,9 @@ the recommendation to AtliQ Motors India is:
 - **Data Visualisation** — 3-dashboard executive brief with KPIs, quadrant analysis, trend charts, and geographic mapping
 - **Business Storytelling** — findings translated into a board-ready strategic recommendation
 - **Stakeholder Communication** — 7-slide executive presentation built from analytical outputs
+
+ ## 🤝 Connect
+**Shubham Sharma**
+📧 Shubham.sharma2021b@gmail.com
+🔗 [LinkedIn](https://www.linkedin.com/in/shubham-sharma-3977ba24a/)
+💻 [GitHub]()
